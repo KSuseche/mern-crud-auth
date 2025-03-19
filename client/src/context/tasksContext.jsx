@@ -52,11 +52,13 @@ export function TaskProvider({ children }) {
 
   const updateTask = async (id, task) => {
     try {
-      await updateTaskRequest(id, task);
+      await updateTaskRequest({ ...task, _id: id });
+      console.log("Tarea actualizada");
     } catch (error) {
-      console.error(error);
+      console.error("Error al actualizar la tarea:", error);
     }
   };
+//modif  
 
   return (
     <TaskContext.Provider

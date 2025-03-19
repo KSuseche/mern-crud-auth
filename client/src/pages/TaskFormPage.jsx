@@ -22,23 +22,24 @@ export function TaskFormPage() {
   const onSubmit = async (data) => {
     try {
       if (params.id) {
-        updateTask(params.id, {
+        await updateTask(params.id, {
           ...data,
           date: dayjs.utc(data.date).format(),
         });
       } else {
-        createTask({
+        await createTask({
           ...data,
           date: dayjs.utc(data.date).format(),
         });
       }
-
-      // navigate("/tasks");
+  
+      // Redirigir a la lista de tareas después de guardar
+      navigate("/tasks");
     } catch (error) {
-      console.log(error);
-      // window.location.href = "/";
+      console.error("Error en el formulario:", error);
     }
   };
+//modif  
 
   useEffect(() => {
     const loadTask = async () => {

@@ -7,3 +7,10 @@ export const createTaskSchema = z.object({
   description: z.string().optional(),
   date: z.string().datetime().optional(),
 });
+
+export const updateTaskSchema = z.object({
+  title: z.string().optional(),
+  description: z.string().optional(),
+  date: z.string().datetime().optional(),
+});
+//c+z
